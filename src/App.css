@@ -1,0 +1,436 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;700&display=swap");
+
+* {
+  font-family: "IBM Plex Sans", sans-serif, monospace, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 0.2rem;
+}
+
+/* Css for all input */
+input {
+  border: 0;
+  outline: none;
+  padding: 0.2rem;
+  text-align: center;
+  font-size: 1rem;
+  width: 10%;
+  border-radius: 20px;
+  color: #374151;
+  background-color: #e5e7eb;
+}
+
+/* Grid Wrapper */
+.gridContainer {
+  display: grid;
+}
+
+/* Navbar css */
+.navbar_div {
+  display: flex;
+  position: relative;
+  width: 100%;
+  top: 0;
+  align-items: flex-end;
+  gap: 2rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+}
+
+/* Sidebar css */
+.sidebar_div {
+  display: flex;
+  position: fixed;
+  top: 50px;
+  width: 10%;
+  flex-direction: column;
+  border-right: 1px solid #e5e7eb;
+  padding: 0.5rem 1rem;
+  height: calc(100vh - 50px);
+  overflow-y: scroll;
+}
+.sidebar_filter_option {
+  display: flex;
+  height: 30px;
+  background: unset;
+  border: 0;
+  align-items: flex-end;
+  justify-content: flex-start;
+  margin-bottom: 0.5rem;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out, border-radius 0.2s ease-in-out;
+}
+.sidebar_filter_option:hover {
+  background: #e5e7eb;
+  color: #000;
+  border-radius: 20px;
+}
+.sidebar_filter_option > span {
+  margin-left: 1rem;
+  font-weight: lighter;
+}
+.sidebar_filter_option:last-child {
+  margin-bottom: 1.5rem;
+}
+.active {
+  background: #7c3aed;
+  color: #fff;
+  border-radius: 50px;
+}
+.MainBody {
+  position: relative;
+  width: calc(100% - 18%);
+  margin-left: 13%;
+}
+.TabWrapper {
+  display: flex;
+}
+.activeTab {
+  background: #7c3aed;
+  color: #fff;
+  border-radius: 50px;
+}
+.verticalDivider {
+  border-left: 1px solid #38546d;
+  border-right: 1px solid #16222c;
+  height: 15px;
+  right: 249px;
+  top: 10px;
+}
+
+/* Badge */
+.badgeList {
+  display: flex;
+  flex-wrap: wrap;
+}
+.titleBadge {
+  border-radius: 50px;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.8rem;
+  text-align: center;
+  background: #c3daf1;
+  font-weight: lighter;
+  font-size: 12px;
+}
+.rateBadge {
+  border-radius: 50px;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.8rem;
+  text-align: center;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-weight: bolder;
+}
+
+.loadMoreButton {
+  margin: 0 auto;
+  background: #7c3aed;
+  color: #fff;
+  border-radius: 50px;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.8rem;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out, border-radius 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+}
+.loadMoreButton:hover {
+  background: rgb(164, 158, 190);
+}
+
+/* Card */
+.cardWrapper {
+  display: flex;
+  position: absolute;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+.cardImageHolder {
+  width: 93%;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.cardFooter {
+  display: flex;
+  width: calc(100% - 15%);
+  position: absolute;
+  bottom: -5rem;
+  padding: 2rem 0;
+  font-size: small;
+  align-content: flex-end;
+}
+.defaultImage {
+  height: 70%;
+  margin-top: 4rem;
+}
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.costDetails {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+.card {
+  width: 455px;
+  height: 250px;
+  background-color: #fff;
+  background: linear-gradient(#f8f8f8, #fff);
+  box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  margin: 1.5rem;
+}
+
+.card h1 {
+  text-align: center;
+}
+
+.card .additional {
+  position: absolute;
+  width: 150px;
+  height: 100%;
+  background: linear-gradient(#de685e, #ee786e);
+  transition: width 0.4s;
+  overflow: hidden;
+  z-index: 2;
+  left: -5px;
+}
+
+.card.green .additional {
+  background: linear-gradient(#92bca6, #a2ccb6);
+}
+
+.card:hover .additional {
+  width: 100%;
+  border-radius: 0 5px 5px 0;
+}
+
+.card .additional .user-card {
+  width: 150px;
+  height: 100%;
+  position: relative;
+  float: left;
+}
+
+.card .additional .user-card::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 10%;
+  right: -2px;
+  height: 80%;
+  border-left: 2px solid rgba(0, 0, 0, 0.025);
+}
+
+.card .additional .user-card .level,
+.card .additional .user-card .points {
+  top: 15%;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.15);
+  padding: 0.125rem 0.75rem;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.card .additional .user-card .points {
+  top: 85%;
+}
+
+.card .additional .user-card svg {
+  top: 50%;
+}
+
+.card .additional .more-info {
+  width: 300px;
+  float: left;
+  position: absolute;
+  left: 150px;
+  height: 100%;
+}
+
+.card .additional .more-info h1 {
+  color: #fff;
+  margin-bottom: 0;
+}
+
+.card.green .additional .more-info h1 {
+  color: #224c36;
+}
+
+.card .additional .coords {
+  margin: 0 1rem;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.card.green .additional .coords {
+  color: #325c46;
+}
+
+.card .additional .coords span + span {
+  float: right;
+}
+
+.card .additional .stats {
+  font-size: 2rem;
+  display: flex;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  top: auto;
+  color: #fff;
+}
+
+.card.green .additional .stats {
+  color: #325c46;
+}
+
+.card .additional .stats > div {
+  flex: 1;
+  text-align: center;
+}
+
+.card .additional .stats i {
+  display: block;
+}
+
+.card .additional .stats div.title {
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.card .additional .stats div.value {
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.5rem;
+}
+
+.card .general {
+  width: 300px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  box-sizing: border-box;
+  padding: 1rem;
+  padding-top: 0;
+}
+
+.card .general .more {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.iconFeatures {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem;
+}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+.nameTooltip {
+  border-bottom: unset;
+  font-size: small;
+}
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  font-size: small;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Target for tablet screen */
+/* @media only screen and (max-width: 900px) {
+
+} */
+@media only screen and (max-width: 1880px) {
+  .sidebar_div {
+    width: 11%;
+  }
+}
+@media only screen and (max-width: 1873px) {
+  .card {
+    margin: 1rem;
+  }
+}
+@media only screen and (max-width: 1814px) {
+  .card {
+    margin: 1rem 0.7rem;
+  }
+}
+@media only screen and (max-width: 1710px) {
+  .sidebar_div {
+    width: 20%;
+  }
+  .MainBody {
+    margin-left: 25%;
+  }
+}
+@media only screen and (max-width: 1025px) {
+  .card {
+    margin: 1rem auto;
+  }
+}
